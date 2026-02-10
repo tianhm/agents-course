@@ -84,6 +84,7 @@ output = client.chat.completions.create(
     ],
     stream=False,
     max_tokens=1024,
+    extra_body={'thinking': {'type': 'disabled'}},
 )
 print(output.choices[0].message.content)
 ```

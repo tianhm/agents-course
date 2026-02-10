@@ -43,6 +43,7 @@ output = client.chat.completions.create(
     ],
     stream=False,
     max_tokens=1024,
+    extra_body={'thinking': {'type': 'disabled'}},
 )
 print(output.choices[0].message.content)
 ```
@@ -164,6 +165,7 @@ output = client.chat.completions.create(
     messages=messages,
     stream=False,
     max_tokens=200,
+    extra_body={'thinking': {'type': 'disabled'}},
 )
 print(output.choices[0].message.content)
 ```
@@ -195,7 +197,8 @@ Do you see the issue?
 output = client.chat.completions.create(
     messages=messages,
     max_tokens=150,
-    stop=["Observation:"] # Let's stop before any actual function is called
+    stop=["Observation:"], # Let's stop before any actual function is called
+    extra_body={'thinking': {'type': 'disabled'}},
 )
 
 print(output.choices[0].message.content)
@@ -246,6 +249,7 @@ output = client.chat.completions.create(
     messages=messages,
     stream=False,
     max_tokens=200,
+    extra_body={'thinking': {'type': 'disabled'}},
 )
 
 print(output.choices[0].message.content)
